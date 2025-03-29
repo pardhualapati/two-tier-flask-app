@@ -10,7 +10,7 @@ pipeline{
         stage("Build"){
             steps{
                 sh "docker build -t 2tierapp ."
-                echo "Building the Code!!"
+                echo "Building the  Code!!"
             }
         }
         stage("Testing"){
