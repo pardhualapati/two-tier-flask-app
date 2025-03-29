@@ -15,7 +15,7 @@ pipeline{
         }
         stage("Testing"){
             steps{
-                echo "Testing is done by Tester"
+                echo "Testing is done by Tester so it is done by a tester"
             }
         }
         stage("Push to DockerHub"){
