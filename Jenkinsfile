@@ -4,7 +4,7 @@ pipeline{
         stage("Code"){
             steps{
                 git url: "https://github.com/pardhualapati/two-tier-flask-app.git", branch:"dockercompose"
-                echo " Code Copied!"
+                echo " Code Copied Successfully!"
             }
         }
         stage("Build"){
