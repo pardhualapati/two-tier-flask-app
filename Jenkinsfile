@@ -11,7 +11,7 @@ pipeline{
         }
         stage("Trivy File System Scan"){
             steps{
-                sh "trivy fs . -o results.json"
+                trivy_fs()
             }
         }
         stage("Build"){
