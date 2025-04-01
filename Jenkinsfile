@@ -42,4 +42,29 @@ pipeline{
         
         
     }
+
+post{
+        success{
+            script{
+                emailext from: "pardhualapati01@gmail.com",
+                to: "pardhu.alapati56@gmail.com",
+                body: "Good News: Your Build was Successfull!",
+                subject: "Build Successfull"
+               
+            }
+            
+        }
+        failure{
+            script{
+                emailext from: "pardhualapati01@gmail.com",
+                to: "pardhualapati56@gmail.com",
+                body: "OOPS build Failed",
+                subject: "Build Failed"
+                
+            }
+        }
+    
+    
+}
+
 }
