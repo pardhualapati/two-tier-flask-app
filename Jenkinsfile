@@ -9,7 +9,7 @@ pipeline{
                 }
             }
         }
-        stage("Trivy File System Scan"){
+        stage("Trivy File System  Scan"){
             steps{
                 trivy_fs()
             }
