@@ -1,10 +1,12 @@
+Library("shared") _
 pipeline{
     agent {label "dev" };
     stages{
         stage("Code"){
             steps{
-                git url: "https://github.com/pardhualapati/two-tier-flask-app.git", branch:"dockercompose"
-                echo " Code Copied Successfully!"
+                script{
+                    clone("https://github.com/pardhualapati/two-tier-flask-app.git/","dockercompose")
+                }
             }
         }
         stage("Trivy File System Scan"){
