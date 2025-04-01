@@ -7,6 +7,11 @@ pipeline{
                 echo " Code Copied Successfully!"
             }
         }
+        stage("Trivy File System Scan"){
+            steps{
+                sh "trivy fs . -o results.json"
+            }
+        }
         stage("Build"){
             steps{
                 sh "docker build -t 2tierapp ."
