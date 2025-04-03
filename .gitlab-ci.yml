@@ -15,12 +15,13 @@ test_job:
     - echo "testing done by tester"
 
 push_job:
-  stage: push_to_docker_hub
+  stage: push_to_dockerhub
   script:
     - docker login -u $DOCKERHUB_USER -p DOCKERHUB_PASS
     - docker image tag 2tierapp:latest $DOCKERHUB_USER/2tierapp:latest
     - docker push $DOCKERHUB_USER/2tierapp:latest
 
-deploy:
+deploy_job:
+  stage: deploy
   script:
     - docker compose up -d
