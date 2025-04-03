@@ -1,0 +1,26 @@
+stages:
+  - build
+  - test
+  - push_to_dockerhub
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - docker build -t 2tierapp:latest .
+
+test_job:
+  stage: test
+  script: 
+    - echo "testing done by tester"
+
+push_job:
+  stage: push_to_docker_hub
+  script:
+    - docker login -u $DOCKERHUB_USER -p DOCKERHUB_PASS
+    - docker image tag 2tierapp:latest $DOCKERHUB_USER/2tierapp:latest
+    - docker push $DOCKERHUB_USER/2tierapp:latest
+
+deploy:
+  script:
+    - docker compose up -d
