@@ -8,11 +8,15 @@ build_job:
   stage: build
   script:
     - docker build -t 2tierapp:latest .
+  tags:
+    - dev
 
 test_job:
   stage: test
   script: 
     - echo "testing done by tester"
+  tags:
+    - dev
 
 push_job:
   stage: push_to_dockerhub
@@ -20,8 +24,12 @@ push_job:
     - docker login -u $DOCKERHUB_USER -p DOCKERHUB_PASS
     - docker image tag 2tierapp:latest $DOCKERHUB_USER/2tierapp:latest
     - docker push $DOCKERHUB_USER/2tierapp:latest
+  tags:
+    - dev
 
 deploy_job:
   stage: deploy
   script:
     - docker compose up -d
+  tags:
+    - dev
