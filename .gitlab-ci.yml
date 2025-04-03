@@ -14,7 +14,7 @@ build_job:
 test_job:
   stage: test
   script: 
-    - echo "testing done by tester"
+    - echo "testing done by tester.."
   tags:
     - dev
 
